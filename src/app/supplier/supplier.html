@@ -1,0 +1,33 @@
+<div class="supplier-page">
+   @if(message){
+   <div class="message">
+      {{ message }}
+    </div>
+  }
+
+  <!-- SUPPLIER HEADER -->
+  <div class="supplier-header">
+    <h1>Suppliers</h1>
+    <div class="add-sup">
+      <button (click)="navigateToAddSupplier()">Add Supplier</button>
+    </div>
+  </div>
+
+  <!-- SUPPLIER LIST -->
+   @if(suppliers.length > 0){
+  <ul class="supplier-list">
+    @for(supplier of suppliers; track supplier.id){
+    <li class="supplier-item">
+        <span>{{ supplier.name }}</span>
+        <div class="supplier-actions">
+              <button (click)="navigateToEditSupplier(supplier.id)" >Edit</button>
+              <button (click)="handleDeleteSupplier(supplier.id)">Delete</button>
+        </div>
+      </li>
+    }
+    </ul>
+   }@else{
+    <p>No supplier found.</p>
+   }
+
+</div>

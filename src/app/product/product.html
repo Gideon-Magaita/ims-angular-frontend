@@ -1,0 +1,58 @@
+<div class="product-page">
+  @if(message){
+  <p class="message">{{ message }}</p>
+  }
+
+
+  <!-- PRODUCT HEADER -->
+  <div class="product-header">
+    <h1>Products</h1>
+    <button class="add-product-btn" (click)="navigateToAddProductPage()">
+      Add Product
+    </button>
+  </div>
+
+  <!-- PRODUCT LIST -->
+   @if(products.length > 0){
+  <div class="product-list">
+    @for(product of products; track product.id){
+      <div class="product-item">
+        <img
+          [src]="product.imageUrl"
+          [alt]="product.name"
+          class="product-image"
+        />
+        <div class="product-info">
+          <h3 class="name">{{ product.name }}</h3>
+          <p class="sku">Sku: {{ product.sku }}</p>
+          <p class="sku">Price: {{ product.price }}</p>
+          <p class="sku">Stock Quantity: {{ product.stockQuantity }}</p>
+        </div>
+
+        <!-- PRODUCT ACTIONS -->
+        <div class="product-actions">
+          <button (click)="navigateToEditProductPage(product.id)" class="edt-btn">
+            Edit
+          </button>
+          <button (click)="handleProductDelete(product.id)" class="delete-btn">
+            Delete
+          </button>
+        </div>
+      </div>
+
+    }
+
+  </div>
+   }@else {
+    <p>No product available!</p>
+   }
+
+
+  <!-- PAGONATIOOPN COMPONETN IN USE -->
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)"
+  >
+  </app-pagination>
+</div>

@@ -1,0 +1,35 @@
+<div class="supplier-form-page">
+
+   @if(message){
+   <div class="message">
+      {{ message }}
+    </div>
+  }
+
+  <h1>{{ isEditing ? "Edit Supplier" : "Add Supplier" }}</h1>
+
+  <form (ngSubmit)="handleSubmit()">
+    <div class="form-group">
+      <label for="">Name</label>
+      <input
+        type="text"
+        [(ngModel)]="formData.name"
+        name="name"
+        placeholder="Enter supplier name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="">Address</label>
+      <input
+        type="text"
+        [(ngModel)]="formData.address"
+        name="address"
+        placeholder="Enter supplier address"
+      />
+    </div>
+
+    <button type="submit">{{ isEditing ? "Edit Supplier" : "Add Supplier" }}</button>
+
+  </form>
+</div>
