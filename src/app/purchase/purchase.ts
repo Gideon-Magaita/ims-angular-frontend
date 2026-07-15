@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Api } from '../service/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-purchase',
@@ -12,7 +13,8 @@ import { Api } from '../service/api';
 export class Purchase implements OnInit {
  constructor(
   private api:Api,
-  private cdr:ChangeDetectorRef
+  private cdr:ChangeDetectorRef,
+  private router:Router
  ){}
 
 
@@ -81,6 +83,7 @@ export class Purchase implements OnInit {
         if (res.status === 200) {
           this.showMessage(res.message)
           this.resetForm();
+          this.router.navigate(['/transaction'])
         }
       },
       error: (error) => {
