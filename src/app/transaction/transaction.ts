@@ -46,8 +46,8 @@ export class Transaction implements OnInit{
       },
       error:(error) =>{
             this.showMessage(
-              error?.error?.message || 
-              error?.message || 
+              error?.error?.message ||
+              error?.message ||
               "Unable to load transactions" + error
             );
       }
@@ -59,7 +59,7 @@ export class Transaction implements OnInit{
    this.currentPage = 1;
    this.valueToSearch = this.searchInput;
    this.loadTransactions();
-   
+
   }
 
 

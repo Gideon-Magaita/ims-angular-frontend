@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class Api {
 
-  private static BASE_URL = 'http://localhost:5051/api';
+  private static BASE_URL = 'http://localhost:5050/api';
   private static ENCRYPTION_KEY = 'my-encription-key';
   authStatusChanged = new EventEmitter<void>();
 
